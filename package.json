@@ -1,0 +1,31 @@
+{
+  "name": "disproxy-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonz93/disproxy-node.git"
+  },
+  "author": "Sihao Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jasonz93/disproxy-node/issues"
+  },
+  "homepage": "https://github.com/jasonz93/disproxy-node#readme",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "mongoose": "^4.9.6",
+    "proxy": "^0.2.4",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.3.0"
+  }
+}
