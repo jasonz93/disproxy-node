@@ -41,13 +41,13 @@ process.on('SIGINT', () => {
         let ip = await instance.getPrivateIp();
     }
     server.listen(3128, () => {
-        const broadcast = ConnectorManager.getBroadcast(opts.broadcast, (msg) => {
+        const mq = ConnectorManager.getMessageQueue(opts.broadcast, (msg) => {
 
         });
         let port = server.address().port;
         console.log('Your internal ip is', ip, 'or you can set it by environment variables.');
         console.log('Proxy server listening on port %d', port);
-        broadcast.broadcast({
+        mq.send({
             type: 'PROXY_ONLINE_REQUEST',
             internal_ip: ip
         });
