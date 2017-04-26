@@ -14,6 +14,7 @@ const ProxyModel = DisproxyCore.Models.Proxy.AttachModel(mongoose);
 
 const instance = new Instance({
     ip_prefix: process.env.DISPROXY_IP_PREFIX,
+    internal_ip: process.env.DISPROXY_INTERNAL_IP,
     broadcast: process.env.DISPROXY_BROADCAST,
     message_queue: process.env.DISPROXY_MESSAGE_QUEUE,
     aliyun_region: process.env.DISPROXY_ALIYUN_REGION,
@@ -34,8 +35,11 @@ process.on('SIGINT', () => {
 });
 
 (async () => {
-    // let ip = await instance.getPrivateIp();
-    let ip = '172.24.131.6';
+    if (opts.internal_ip) {
+        let ip = opts.internal_ip;
+    } else {
+        let ip = await instance.getPrivateIp();
+    }
     server.listen(3128, () => {
         const broadcast = ConnectorManager.getBroadcast(opts.broadcast, (msg) => {
 

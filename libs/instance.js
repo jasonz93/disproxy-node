@@ -8,6 +8,7 @@ class Instance {
     constructor(options) {
         this.opts = _.defaults(options, {
             ip_prefix: '',
+            internal_ip: null,
             broadcast: 'redis://localhost/disproxy_broadcast',
             message_queue: 'redis://localhost/disproxy_mq',
             mongo: 'mongodb://localhost/disproxy',
